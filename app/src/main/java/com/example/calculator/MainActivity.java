@@ -157,14 +157,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnEq.setOnClickListener((v)->{
-            setVar2();
 
-            if(sign == '+') ans = var1 + var2;
-            else if(sign == '-') ans = var1 - var2;
-            else if(sign == '*') ans = var1 * var2;
-            else if(sign == '/') ans = var1 / var2;
-
-            textViewDis.setText(formatDouble(ans));
+            try {
+                setVar2();
+                if (sign == '+') ans = var1 + var2;
+                else if (sign == '-') ans = var1 - var2;
+                else if (sign == '*') ans = var1 * var2;
+                else if (sign == '/') ans = var1 / var2;
+                textViewDis.setText(formatDouble(ans));
+            }
+            catch(Exception e){
+                textViewLog.setText("");
+                textViewDis.setText("ERROR");
+            }
 
         });
 
